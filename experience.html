@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Rose Ndongolo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    :root {
+      --primary: #00bfff;
+      --secondary: #0d0d2b;
+      --accent: #ff4d6d;
+      --light: #f8f9fa;
+      --dark: #0a0a23;
+      --card-bg: #1a1a40;
+    }
+    
+    body {
+      background-color: var(--secondary);
+      color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    header {
+      background-color: var(--dark);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-link {
+      color: var(--light) !important;
+      margin: 0 0.5rem;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+    
+    .resume-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .resume-section {
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .resume-section:hover {
+      transform: translateY(-5px);
+    }
+    
+    .section-title {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 20px;
+      bottom: -25px;
+      width: 1px;
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .timeline-item:last-child::after {
+      display: none;
+    }
+    
+    .timeline-date {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .skill-badge {
+      background: rgba(0, 191, 255, 0.1);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      border: 1px solid var(--primary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-badge:hover {
+      background: var(--primary);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+    
+    .download-btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--light);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 191, 255, 0.4);
+      color: var(--light);
+    }
+    
+    footer {
+      background-color: var(--dark);
+      padding: 1.5rem 0;
+      margin-top: auto;
+    }
+    
+    .footer-text {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.5rem;
+      }
+      
+      .resume-section {
+        padding: 1.5rem;
+      }
+      
+      .skills-list {
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Rose Ndongolo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="skills.html">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="experience.html">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="resume-header animate__animated animate__fadeInDown">
+      <h1 class="page-title">My Resume</h1>
+      <p class="lead">A showcase of my education, skills, and professional journey</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 animate__animated animate__fadeInLeft">
+        <section class="resume-section">
+          <h2 class="section-title">Education</h2>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - 2026</div>
+            <h3 class="timeline-title">Bachelor of Information Technologies Application and Management</h3>
+            <p class="timeline-location">The State University of Zanzibar</p>
+            <p class="timeline-description">Specializing in web development and software engineering with a focus on modern technologies and best practices.</p>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 2022</div>
+            <h3 class="timeline-title">Advanced Diploma in Computer Science</h3>
+            <p class="timeline-location">Namibia Institute of Technology</p>
+            <p class="timeline-description">Fundamentals of programming, database management, and system analysis.</p>
+          </div>
+        </section>
+
+        <section class="resume-section">
+          <h2 class="section-title">Experience</h2>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - Present</div>
+            <h3 class="timeline-title">Junior Web Developer</h3>
+            <p class="timeline-location">Tech Solutions Africa</p>
+            <ul>
+              <li>Developed and maintained responsive web applications using React and Django</li>
+              <li>Collaborated with design team to implement UI/UX improvements</li>
+              <li>Optimized application performance leading to 30% faster load times</li>
+            </ul>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2022 - 2023</div>
+            <h3 class="timeline-title">Web Development Intern</h3>
+            <p class="timeline-location">Digital Creations Ltd</p>
+            <ul>
+              <li>Assisted in building client websites using HTML, CSS, and JavaScript</li>
+              <li>Participated in code reviews and team meetings</li>
+              <li>Created documentation for internal processes</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-lg-6 animate__animated animate__fadeInRight">
+        <section class="resume-section">
+          <h2 class="section-title">Technical Skills</h2>
+          
+          <h5 class="mt-4 mb-3">Frontend Development</h5>
+          <div class="skills-list">
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">CSS3</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">React.js</span>
+            <span class="skill-badge">Bootstrap</span>
+            <span class="skill-badge">SASS</span>
+          </div>
+          
+          <h5 class="mt-4 mb-3">Backend Development</h5>
+          <div class="skills-list">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Django</span>
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">Express</span>
+          </div>
+          
+          <h5 class="mt-4 mb-3">Database & Tools</h5>
+          <div class="skills-list">
+            <span class="skill-badge">PostgreSQL</span>
+            <span class="skill-badge">MySQL</span>
+            <span class="skill-badge">MongoDB</span>
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">Docker</span>
+          </div>
+        </section>
+
+        <section class="resume-section">
+          <h2 class="section-title">Certifications</h2>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2023</div>
+            <h3 class="timeline-title">Full Stack Web Development</h3>
+            <p class="timeline-location">Coursera</p>
+            <p class="timeline-description">Completed specialization in modern web development technologies</p>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2022</div>
+            <h3 class="timeline-title">Python for Data Science</h3>
+            <p class="timeline-location">Udemy</p>
+            <p class="timeline-description">Data analysis and visualization using Python libraries</p>
+          </div>
+          
+          <div class="text-center mt-4">
+            <a href="#" class="download-btn">
+              <i class="bi bi-download"></i> Download Full Resume
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container text-center">
+      <p class="footer-text">&copy; 2025 Rose Mnemsi Ndongolo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.animate__animated');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      elements.forEach(element => {
+        element.style.opacity = 0;
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>
